@@ -1,11 +1,11 @@
 var VideoPlayerView = Backbone.View.extend({
 
-  initialize: function () {
-    this.render();
+  initialize: function (model) {
+    this.render(model);
   },
 
-  render: function() {
-    this.$el.html(this.template());
+  render: function(model) {
+    this.$el.html(this.template(model.attributes));
     // $('.col-md-7').html(this.$el);
     return this;
   },
