@@ -1,5 +1,9 @@
 var VideoListEntryView = Backbone.View.extend({
 
+  event: {
+    'click .video-list-entry-title': 'handleClick'
+  },
+
   initialize: function (entry) {
     // console.log('entry: ', entry);
     this.model = entry.model;
