@@ -1,36 +1,24 @@
 var VideoListEntryView = Backbone.View.extend({
 
-  event: {
-    'click .video-list-entry-title': 'handleClick'
-  },
-
-  initialize: function (entry) {
-    // console.log('entry: ', entry);
-    this.model = entry.model;
-    this.on('click', function() {
-      console.log('e');
-    });
+  initialize: function () {
     
-    this.render(entry);
-
+    this.render();
   },  
 
   render: function() {
     var templated = this.template(this.model.attributes);
-    // console.log(templated);
     this.$el.html(templated);
-    console.log(this.el);
-    // this.model.on('click', function() {
-    //   console.log('yay');
-    // }, this);
-    this.$el.find('.video-list-entry-title').on('click', function(e) {
-      console.log(e); // Need to now change Model data, which then will trigger change event, so 
-    });
-    return this;
+    return this.$el;
+  },
+
+  events: {
+    'click .video-list-entry-title': 'handleClick'
+  },
+
+  handleClick: function(event) {
+    this.model.select();
   },
 
   template: templateURL('src/templates/videoListEntry.html')
-
-  
   
 });

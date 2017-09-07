@@ -1,5 +1,9 @@
 var SearchView = Backbone.View.extend({
 
+  events: {
+    'click .btn': 'handleSearch'
+  },
+  
   initialize: function() {
     this.render();
   },
@@ -7,10 +11,11 @@ var SearchView = Backbone.View.extend({
   render: function() {
     
     this.$el.html(this.template());
-    // console.log(this.el);
-    // this.$el.empty();
-    // this.$el.find('.search').html(this.$el);
     return this;
+  },
+  
+  handleSearch: function(event) {
+    console.log(event);
   },
 
   template: templateURL('src/templates/search.html')
